@@ -35,6 +35,12 @@ class GetRawData extends AsyncTask<String, Void, String>
 
     }
 
+    void runInSameThread(String s)
+    {
+        Log.d(TAG, "runInSameThread starts");
+        onPostExecute(doInBackground());
+        Log.d(TAG, "runInSameThread ends");
+    }
     @Override
     protected void onPostExecute(String s) {
         Log.d(TAG, "onPostExecute: parameter=" + s);
@@ -104,4 +110,6 @@ class GetRawData extends AsyncTask<String, Void, String>
 
     return null;
     }
+
+
 }
