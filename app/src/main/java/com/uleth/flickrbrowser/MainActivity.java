@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    //@Override
     public void OnDataAvailable(List<Photo> data, DownloadStatus status) {
         if (status == DownloadStatus.OK) {
             Log.d(TAG, "onDataAvailable: data is:" + data);
