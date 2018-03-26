@@ -25,6 +25,7 @@ class GetFlickrJsonData extends AsyncTask <String, Void, List<Photo>> implements
     private boolean mMatchAll;
 
     private final OnDataAvailable mCallback;
+    private boolean runningOnSameThread = false;
 
     interface OnDataAvailable {
         void OnDataAvailable(List<Photo> data, DownloadStatus status);
@@ -42,9 +43,10 @@ class GetFlickrJsonData extends AsyncTask <String, Void, List<Photo>> implements
 
     void executeOnSameThread(String searchCriteria) {
         Log.d(TAG, "executeOnSameThread starts");
+        runningOnSameThread=true;
         String destinationUri = createUri(searchCriteria, mLanguages, mMatchAll);
         GetRawData getRawData = new GetRawData(this);
-        getRawData.runInSameThread(destinationUri);
+        getRawData.execute(destinationUri);
         Log.d(TAG, "executedOnSameThread ends");
 
     }
@@ -66,7 +68,7 @@ class GetFlickrJsonData extends AsyncTask <String, Void, List<Photo>> implements
         Log.d(TAG,"doInBackground starts");
         String destinationUri = createUri(params[0], mLanguages,mMatchAll);
         GetRawData getRawData = new GetRawData(this);
-        getRawData.execute(destinationUri);
+        getRawData.runInSameThread(destinationUri);
         Log.d(TAG,"doInBackground ends");
         return mPhotoList;
     }
@@ -120,8 +122,9 @@ class GetFlickrJsonData extends AsyncTask <String, Void, List<Photo>> implements
                     status = DownloadStatus.FAILED_OR_EMPTY;
             }
         }
-        if(mCallback != null)
-        {
+        if(runningOnSameThread && mCallback != null)
+        {   // now inform the caller that processing is done- possibly
+            // returning null if there was an error.
             mCallback.OnDataAvailable(mPhotoList, status);
         }
         Log.d(TAG, "onDownloadComplete ends");

@@ -4,18 +4,21 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.LogRecord;
 
 public class MainActivity extends AppCompatActivity implements GetFlickrJsonData.OnDataAvailable {
     private static final String TAG = "MainActivity";
-
+    private FlickrRecycleViewAdapter mFlickrRecycleViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,11 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mFlickrRecycleViewAdapter = new FlickrRecycleViewAdapter(this, new ArrayList<Photo>());
+        recyclerView.setAdapter(mFlickrRecycleViewAdapter);
 
         //GetRawData getRawData = new GetRawData(this);
         //getRawData.execute("http://api.flickr.com/services/feeds/photos_public.gne?tags=android,nougat,sdk&tagmode=any&format=json&nojsoncallback=1");
@@ -38,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
         super.onResume();
         GetFlickrJsonData getFlickrJsonData  = new GetFlickrJsonData(this,"https://api.flickr.com/services/feeds/photos_public.gne","en-us", true);
         getFlickrJsonData.executeOnSameThread("android, nougat");
+        //getFlickrJsonData.execute("android,nougat");
         Log.d(TAG,"onResume ends ");
 
     }
@@ -67,12 +76,15 @@ public class MainActivity extends AppCompatActivity implements GetFlickrJsonData
 
     //@Override
     public void OnDataAvailable(List<Photo> data, DownloadStatus status) {
+        Log.d(TAG, "onDataAvailable: starts");
         if (status == DownloadStatus.OK) {
-            Log.d(TAG, "onDataAvailable: data is:" + data);
+            //Log.d(TAG, "onDataAvailable: data is:" + data);
+            mFlickrRecycleViewAdapter.loadNewData(data);
         } else {
             //download or processing failed
             Log.e(TAG, "onDataAvailable: failed with status" + status);
         }
+        Log.d(TAG, "onDataAvailable: ends");
 
     }
 
