@@ -2,8 +2,8 @@ package com.uleth.flickrbrowser;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toolbar;
 
 /**
  * Created by michellele on 2018-03-31.
@@ -12,7 +12,7 @@ import android.widget.Toolbar;
 public class BaseActivity extends AppCompatActivity{
 
     private static final String TAG = "Basic Activity";
-    private static String Flickr_Query = "FLICK_QUERY";
+    static final String Flickr_Query = "FLICK_QUERY";
     static final String PHOTOTRANSFER = "PHOTO_TRANSFER";
 
     void activateToolbar(boolean enableHome){

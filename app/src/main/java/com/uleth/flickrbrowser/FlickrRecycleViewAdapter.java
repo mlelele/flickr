@@ -18,7 +18,8 @@ import java.util.List;
  * Created by Shah Jabeen Sajid on 2018-03-24.
  */
 
-class FlickrRecycleViewAdapter extends RecyclerView.Adapter<FlickrRecycleViewAdapter.FlickrImageViewHolder>{
+class FlickrRecycleViewAdapter
+        extends RecyclerView.Adapter<FlickrRecycleViewAdapter.FlickrImageViewHolder>{
 
     private static final String TAG = "FlickrRecycleViewAdapt";
     private List<Photo> mPhotoList;

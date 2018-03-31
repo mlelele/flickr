@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="7dp"
+        android:layout_height="121dp"
         android:layout_weight="1"
         android:scaleType="fitStart"
         app:srcCompat="@drawable/placeholder" />
