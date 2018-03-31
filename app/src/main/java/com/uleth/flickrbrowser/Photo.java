@@ -1,10 +1,16 @@
 package com.uleth.flickrbrowser;
 
+import java.io.Serializable;
+
 /**
  * Created by michellele on 2018-03-21.
  */
 
-class Photo {
+class Photo implements Serializable{
+
+    private static final long serialVersionID = 1l;
+
+
     private String mTitle;
     private String mAuthor;
     private String mAuthorId;
