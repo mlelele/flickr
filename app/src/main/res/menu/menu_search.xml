@@ -1,10 +1,12 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.uleth.flickrbrowser.SearchActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/app_bar_search"
+        app:actionViewClass="android.widget_SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/activity_search"
+        app:showAsAction="ifRoom" />
 </menu>

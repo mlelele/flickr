@@ -72,6 +72,14 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
+
+            //true means you dealt with the action, so this a test
+            return true;
+        }
+
+        if (id == R.id.action_search) {
             return true;
         }
 
