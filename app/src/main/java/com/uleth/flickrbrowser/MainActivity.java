@@ -1,7 +1,9 @@
 package com.uleth.flickrbrowser;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +43,6 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
         recyclerView.setAdapter(mFlickrRecycleViewAdapter);
 
 
-
         Log.d(TAG, "onCreate: ends");
     }
 
@@ -49,9 +50,21 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
     protected void onResume(){
         Log.d(TAG,"onResume starts");
         super.onResume();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String queryResult = sharedPreferences.getString(Flickr_Query, "");
+
+        //wont download data if its empty
+        /*if(queryResult.length() > 0){
+            GetFlickrJsonData getFlickrJsonData  = new GetFlickrJsonData(this,"https://api.flickr.com/services/feeds/photos_public.gne","en-us", true);
+            //getFlickrJsonData.executeOnSameThread("android, nougat");
+            getFlickrJsonData.execute(queryResult);
+        }*/
+
         GetFlickrJsonData getFlickrJsonData  = new GetFlickrJsonData(this,"https://api.flickr.com/services/feeds/photos_public.gne","en-us", true);
-        getFlickrJsonData.executeOnSameThread("android, nougat");
-        //getFlickrJsonData.execute("android,nougat");
+        //getFlickrJsonData.executeOnSameThread("android, nougat");
+        getFlickrJsonData.execute("android, nougat");
+
         Log.d(TAG,"onResume ends ");
 
     }

@@ -46,20 +46,29 @@ class FlickrRecycleViewAdapter
     @Override
     public void onBindViewHolder(FlickrImageViewHolder holder, int position)
     { // called by the layout manager when it wants new data in an existing row
-        Photo photoItem = mPhotoList.get(position);
-        Log.d(TAG, "onBindViewHolder: " + photoItem.getTitle() + "-->" + position);
-        Picasso.with(mContext).load(photoItem.getImage())
-                .error(R.drawable.placeholder)
-                .placeholder(R.drawable.placeholder)
-                .into(holder.thumbnail);
 
-        holder.title.setText(photoItem.getTitle());
+        //checking to see if there are images result from search, if empty give message else then show image
+        if((mPhotoList == null) || (mPhotoList.size()== 0)){
+            holder.thumbnail.setImageResource(R.drawable.placeholder);
+            holder.title.setText(R.string.empty_photo);
+        } else {
+
+            Photo photoItem = mPhotoList.get(position);
+            Log.d(TAG, "onBindViewHolder: " + photoItem.getTitle() + "-->" + position);
+            Picasso.with(mContext).load(photoItem.getImage())
+                    .error(R.drawable.placeholder)
+                    .placeholder(R.drawable.placeholder)
+                    .into(holder.thumbnail);
+
+            holder.title.setText(photoItem.getTitle());
+        }
     }
 
     @Override
     public int getItemCount()
     {
-        return ((mPhotoList != null) && (mPhotoList.size() != 0 ) ? mPhotoList.size() :0);
+        //if no records show the 1 item, ie the placeholder
+        return ((mPhotoList != null) && (mPhotoList.size() != 0 ) ? mPhotoList.size() :1);
         //return 0;
     }
     void loadNewData(List<Photo> newPhotos)

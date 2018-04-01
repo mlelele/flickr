@@ -13,7 +13,7 @@ public class PhotoDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //check this again
+        //check this again, in video it is activity_phot....
         setContentView(R.layout.content_photo_detail);
 
         activateToolbar(true);
