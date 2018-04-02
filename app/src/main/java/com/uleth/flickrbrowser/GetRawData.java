@@ -38,12 +38,16 @@ class GetRawData extends AsyncTask<String, Void, String>
     void runInSameThread(String s)
     {
         Log.d(TAG, "runInSameThread starts");
-        onPostExecute(doInBackground());
+        //onPostExecute(doInBackground());
+        if(mCallback != null)
+        {
+            mCallback.onDownloadComplete(doInBackground(s), mDownloadStatus);
+        }
         Log.d(TAG, "runInSameThread ends");
     }
     @Override
     protected void onPostExecute(String s) {
-        Log.d(TAG, "onPostExecute: parameter=" + s);
+        //Log.d(TAG, "onPostExecute: parameter=" + s);
         if(mCallback != null){
             mCallback.onDownloadComplete(s, mDownloadStatus);
            //Check lecture 137 changes in mainactivity- resume also- giving error
@@ -69,7 +73,6 @@ class GetRawData extends AsyncTask<String, Void, String>
             URL url = new URL( strings[0]);
 
             connection = (HttpURLConnection) url.openConnection();
-
             connection.setRequestMethod("GET");
             connection.connect();
             int response = connection.getResponseCode();
@@ -78,10 +81,12 @@ class GetRawData extends AsyncTask<String, Void, String>
             StringBuilder result = new StringBuilder();
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-            String Line;
+            //String Line;
 
-            while (null != (Line=reader.readLine())) {
-                result.append(Line).append("\n");
+           // while (null != (Line=reader.readLine()))
+            for(String line = reader.readLine();line !=null; line= reader.readLine())
+            {
+                result.append(line).append("\n");
             }
 
             mDownloadStatus = DownloadStatus.OK;

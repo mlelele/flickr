@@ -13,7 +13,7 @@ import android.view.View;
  */
 
 class RecyclerItemClickListener extends RecyclerView.SimpleOnItemTouchListener{
-    private static final String TAG = "RecyclerItemClickListener";
+  private static final String TAG = "RecyclerItemClickListener";
 
     interface  OnRecyclerClickListener{
         void onItemClick (View view, int position);
@@ -30,7 +30,6 @@ class RecyclerItemClickListener extends RecyclerView.SimpleOnItemTouchListener{
 
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
-
                 Log.d(TAG, "onSingleTapUp: starts");
                 View childView = recyclerView.findChildViewUnder(e.getX(), e.getY());
                 if (childView != null && mListener !=null) {
@@ -50,11 +49,8 @@ class RecyclerItemClickListener extends RecyclerView.SimpleOnItemTouchListener{
                     Log.d(TAG, "onLongPress: calling listener.onItemLongClick");
                     mListener.onItemLongClick(childView, recyclerView.getChildAdapterPosition(childView));
                 }
-
             }
         });
-
-
     }
 
     @Override

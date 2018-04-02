@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.LogRecord;
 
-public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDataAvailable, RecyclerItemClickListener.OnRecyclerClickListener {
+public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDataAvailable,
+        RecyclerItemClickListener.OnRecyclerClickListener {
 
     private static final String TAG = "MainActivity";
     private FlickrRecycleViewAdapter mFlickrRecycleViewAdapter;
@@ -30,7 +31,6 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
         Log.d(TAG, "onCreate: starts");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         activateToolbar(false);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -41,7 +41,6 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
 
         mFlickrRecycleViewAdapter = new FlickrRecycleViewAdapter(this, new ArrayList<Photo>());
         recyclerView.setAdapter(mFlickrRecycleViewAdapter);
-
 
         Log.d(TAG, "onCreate: ends");
     }
@@ -55,16 +54,17 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
         String queryResult = sharedPreferences.getString(Flickr_Query, "");
 
         //wont download data if its empty
-        /*if(queryResult.length() > 0){
+       if(queryResult.length() > 0){
             GetFlickrJsonData getFlickrJsonData  = new GetFlickrJsonData(this,"https://api.flickr.com/services/feeds/photos_public.gne","en-us", true);
-            //getFlickrJsonData.executeOnSameThread("android, nougat");
+           // getFlickrJsonData.executeOnSameThread("android, nougat");
+            //getFlickrJsonData.execute("android, nougat");
             getFlickrJsonData.execute(queryResult);
-        }*/
-
+        }
+/*
         GetFlickrJsonData getFlickrJsonData  = new GetFlickrJsonData(this,"https://api.flickr.com/services/feeds/photos_public.gne","en-us", true);
         //getFlickrJsonData.executeOnSameThread("android, nougat");
         getFlickrJsonData.execute("android, nougat");
-
+*/
         Log.d(TAG,"onResume ends ");
 
     }
@@ -85,14 +85,13 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SearchActivity.class);
-            startActivity(intent);
-
             //true means you dealt with the action, so this a test
             return true;
         }
 
         if (id == R.id.action_search) {
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -125,7 +124,5 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
         Intent intent = new Intent(this, PhotoDetailActivity.class);
         intent.putExtra(PHOTOTRANSFER,mFlickrRecycleViewAdapter.getPhoto(position));
         startActivity(intent);
-
-
     }
 }
