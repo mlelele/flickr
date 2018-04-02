@@ -4,7 +4,13 @@
     tools:context="com.uleth.flickrbrowser.MainActivity">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="102"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:orderInCategory="103"
+        android:title="@string/activity_search"
+        app:showAsAction="ifRoom" />
 </menu>
