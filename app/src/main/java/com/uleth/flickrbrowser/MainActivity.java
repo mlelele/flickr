@@ -84,7 +84,9 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_upload) {
+            Intent intent = new Intent(this, UploadActivity.class);
+            startActivity(intent);
             //true means you dealt with the action, so this a test
             return true;
         }
