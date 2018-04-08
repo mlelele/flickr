@@ -11,5 +11,9 @@
     <string name="activity_search">Search</string>
     <string name="searchable_hint">Enter photo tags</string>
     <string name="empty_photo">No photos match your search.   Use the search icon to search for photos</string>
+    <string name="title_activity_upload">UploadActivity</string>
+    <string name="action_upload">Upload</string>
 
+    <item name="imgPic" type="id">uploadPic</item>
+    <item name="upload_button" type="id">uploadButton</item>
 </resources>
