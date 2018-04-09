@@ -53,8 +53,12 @@ public class UploadActivity extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
+
+                Intent intent = new Intent(this, EditInfoActivity.class);
+                startActivity(intent);
+
             if (requestCode == IMAGE_GALLERY_REQUEST) {
                 Uri imageUri = data.getData();
 
@@ -66,7 +70,7 @@ public class UploadActivity extends BaseActivity {
                     imgPicture.setImageBitmap(image);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    Toast.makeText(this, "Unable to displayimage", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Unable to display image", Toast.LENGTH_LONG).show();
 
                 }
             }
