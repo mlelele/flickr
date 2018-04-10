@@ -44,7 +44,7 @@ public class EditInfoActivity extends BaseActivity {
 
 
     ImageView image = (ImageView) findViewById(R.id.imgPic);
-        
+
 
     }
 }

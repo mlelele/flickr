@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Input Tag "
             android:inputType="textPersonName"
             android:text="Input Tag " />
 
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Input Author"
             android:inputType="textPersonName"
             android:text="Input Author" />
 
@@ -37,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Input Title"
             android:inputType="textPersonName"
             android:text="Input Title"
             tools:layout_editor_absoluteX="85dp"
