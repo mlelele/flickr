@@ -6,60 +6,64 @@
     android:layout_height="match_parent"
     tools:context="com.uleth.flickrbrowser.EditInfoActivity">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+    <LinearLayout
+        android:layout_width="373dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="33dp"
+        android:layout_marginTop="256dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/Edit_tag"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="6dp">
+
+        <EditText
+            android:id="@+id/Input_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Input Tag " />
+
+        <EditText
+            android:id="@+id/Input_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Input Author" />
+
+        <EditText
+            android:id="@+id/Input_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Input Title"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="341dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Edit_tag"
+        android:layout_width="244dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="368dp"
-            android:layout_height="32dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:hint="Edit Tags"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.031" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="368dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:hint="Edit Author"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="368dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:hint="Edit Title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.design.widget.TextInputLayout>
+    <ImageView
+        android:id="@+id/imgpic"
+        android:layout_width="380dp"
+        android:layout_height="257dp"
+        app:srcCompat="@drawable/placeholder"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="1dp" />
 
 </android.support.constraint.ConstraintLayout>

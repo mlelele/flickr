@@ -10,10 +10,12 @@ package com.uleth.flickrbrowser;
         import android.os.Environment;
         import android.support.design.widget.FloatingActionButton;
         import android.view.View;
+        import android.widget.EditText;
         import android.widget.ImageView;
+        import android.widget.Button;
         import android.widget.TextView;
         import android.widget.Toast;
-
+        import android.os.Bundle;
         import com.squareup.picasso.Picasso;
         import java.io.File;
         import java.io.FileNotFoundException;
@@ -25,7 +27,7 @@ public class UploadActivity extends BaseActivity {
     private static final int IMAGE_GALLERY_REQUEST = 88;
     //private ImageView imgPicture;
     ImageView imgPicture;
-    Integer REQUEST_CAMERA=1, SELECT_FILE=0;
+    Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
 
 
     @Override
@@ -56,8 +58,8 @@ public class UploadActivity extends BaseActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
 
-                Intent intent = new Intent(this, EditInfoActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(this, EditInfoActivity.class);
+            startActivity(intent);
 
             if (requestCode == IMAGE_GALLERY_REQUEST) {
                 Uri imageUri = data.getData();
@@ -73,8 +75,9 @@ public class UploadActivity extends BaseActivity {
                     Toast.makeText(this, "Unable to display image", Toast.LENGTH_LONG).show();
 
                 }
-            }
 
+
+            }
         }
     }
 }
