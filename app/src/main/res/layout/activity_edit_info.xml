@@ -54,7 +54,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:onClick="@string/sendEditInfo"
+        android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +66,7 @@
         android:id="@+id/imageView2"
         android:layout_width="389dp"
         android:layout_height="206dp"
-        app:srcCompat="@drawable/pic"
+        app:srcCompat="@drawable/ic_launcher_background"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="40dp" />
 

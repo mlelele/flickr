@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Environment;
 import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +13,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 
 public class EditInfoActivity extends BaseActivity {
@@ -48,5 +52,12 @@ public class EditInfoActivity extends BaseActivity {
       //  ImageView imageView = new ImageView(this);
         imageView.setImageResource(R.drawable.pic);
         setContentView(imageView);*/
+    }
+
+    public void sendEditInfo(View v){
+        Intent intent= new Intent(this, MainActivity.class);
+        startActivity(intent);
+        Toast.makeText(EditInfoActivity.this, "Image has been uploaded", Toast.LENGTH_SHORT).show();
+
     }
 }

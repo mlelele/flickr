@@ -70,6 +70,8 @@ public class UploadActivity extends BaseActivity {
                     inputStream = getContentResolver().openInputStream(imageUri);
                     Bitmap image = BitmapFactory.decodeStream(inputStream);
                     imgPicture.setImageBitmap(image);
+                    Toast.makeText(UploadActivity.this, "Image selected", Toast.LENGTH_SHORT).show();
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Unable to display image", Toast.LENGTH_LONG).show();
