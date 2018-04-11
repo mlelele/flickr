@@ -1,6 +1,9 @@
 package com.uleth.flickrbrowser;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,10 +44,9 @@ public class EditInfoActivity extends BaseActivity {
         String input3 = Input_title.getText().toString();
         Input_title.setText(input3);
 
-
-
-    ImageView image = (ImageView) findViewById(R.id.imgPic);
-
-
+     /*  ImageView imageView = (ImageView) findViewById(R.id.imgpic);
+      //  ImageView imageView = new ImageView(this);
+        imageView.setImageResource(R.drawable.pic);
+        setContentView(imageView);*/
     }
 }
