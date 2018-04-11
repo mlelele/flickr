@@ -24,7 +24,7 @@
             android:ems="10"
             android:hint="Input Tag "
             android:inputType="textPersonName"
-            android:text="Input Tag " />
+            />
 
         <EditText
             android:id="@+id/Input_author"
@@ -32,8 +32,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Input Author"
-            android:inputType="textPersonName"
-            android:text="Input Author" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/Input_title"
@@ -42,7 +41,6 @@
             android:ems="10"
             android:hint="Input Title"
             android:inputType="textPersonName"
-            android:text="Input Title"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="341dp" />
     </LinearLayout>
@@ -68,7 +66,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
+        app:srcCompat="@drawable/android_img"
         tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>
