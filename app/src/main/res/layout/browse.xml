@@ -11,17 +11,18 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="371dp"
-        android:layout_height="350dp"
+        android:layout_width="match_parent"
+        android:layout_height="322dp"
         android:layout_weight="1"
         android:contentDescription="@string/browse_image_description"
+        android:hapticFeedbackEnabled="true"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/placeholder" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="371dp"
-        android:layout_height="48dp"
+        android:layout_height="54dp"
         android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp"
         android:layout_weight="2"
