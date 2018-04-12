@@ -6,16 +6,35 @@
     android:layout_height="match_parent"
     tools:context="com.uleth.flickrbrowser.EditInfoActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="373dp"
-        android:layout_height="164dp"
+        android:layout_width="307dp"
+        android:layout_height="133dp"
         android:layout_marginBottom="33dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="256dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/Edit_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="6dp">
+        app:layout_constraintVertical_bias="1.0">
 
         <EditText
             android:id="@+id/Input_tag"
@@ -23,8 +42,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Input Tag "
-            android:inputType="textPersonName"
-            />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/Input_author"
@@ -49,7 +67,7 @@
         android:id="@+id/Edit_tag"
         android:layout_width="244dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:onClick="@string/sendEditInfo"
@@ -65,7 +83,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:srcCompat="@drawable/android_img"
         tools:layout_editor_absoluteX="0dp" />
 
