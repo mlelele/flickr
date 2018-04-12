@@ -21,6 +21,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_photo_detail" />
+    <include
+        layout="@layout/content_photo_detail"
+        android:layout_height="334dp" />
 
 </android.support.design.widget.CoordinatorLayout>
