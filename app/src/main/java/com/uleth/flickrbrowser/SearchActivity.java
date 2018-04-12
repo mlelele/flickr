@@ -3,6 +3,7 @@ package com.uleth.flickrbrowser;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -34,15 +35,11 @@ public class SearchActivity extends BaseActivity {
         Log.d(TAG, "onCreateOptionsMenu: starts");
         getMenuInflater().inflate(R.menu.menu_search, menu);
 
-        //vid 160 give options on mods
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         mSearchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
         mSearchView.setSearchableInfo(searchableInfo);
 
-        //Log.d(TAG, "onCreateOptionsMenu: " + getComponentName().toString());
-        //Log.d(TAG, "onCreateOptionsMenu: hint is " + mSearchView.getQueryHint());
-        //Log.d(TAG, "onCreateOptionsMenu: serachable info is " + searchableInfo.toString());
 
         mSearchView.setIconified(false);
 
@@ -53,27 +50,47 @@ public class SearchActivity extends BaseActivity {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 sharedPreferences.edit().putString(Flickr_Query, query).apply();
                 mSearchView.clearFocus();
+
                 //closes the activity and returns to which called it (this case: main activity)
                 finish();
+
+
                 return true;
             }
+
+
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
+
+
+
+
+
         });
+
+
 
         mSearchView.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
+
                 finish();
                 return false;
             }
-        });
-        
+        }
+        );
+
+
+
+
         Log.d(TAG, "onCreateOptionsMenu: returned" + true);
 
         return  true;
     }
+
+
+
 }

@@ -34,6 +34,9 @@ public class EditInfoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
+
+        activateToolbar(true);
+
         Input_tag = (EditText) findViewById(R.id.Input_tag);
         Input_tag.setText("");
         Input_author = (EditText) findViewById(R.id.Input_author);

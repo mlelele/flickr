@@ -27,6 +27,7 @@ package com.uleth.flickrbrowser;
 public class UploadActivity extends BaseActivity {
 
 
+
     private static final int IMAGE_GALLERY_REQUEST = 88;
     //private ImageView imgPicture;
     ImageView imgPicture;
@@ -64,11 +65,6 @@ public class UploadActivity extends BaseActivity {
             return true;
         }
 
-        if (id == R.id.action_search) {
-            Intent intent = new Intent(this, SearchActivity.class);
-            startActivity(intent);
-            return true;
-        }
 
 
         return super.onOptionsItemSelected(item);

@@ -117,12 +117,10 @@ public class MainActivity extends BaseActivity implements GetFlickrJsonData.OnDa
     @Override
     public void onItemClick(View view, int position){
         Log.d(TAG, "onItemClick: starts");
-        Toast.makeText(MainActivity.this, "Normal top at position" + position, Toast.LENGTH_SHORT).show();
     }
     @Override
     public void onItemLongClick(View view, int position){
         Log.d(TAG, "onItemLongClick: starts");
-      //  Toast.makeText(MainActivity.this, "long top at position" + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, PhotoDetailActivity.class);
         intent.putExtra(PHOTOTRANSFER,mFlickrRecycleViewAdapter.getPhoto(position));
         startActivity(intent);

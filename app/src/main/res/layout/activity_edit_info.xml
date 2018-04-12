@@ -6,42 +6,76 @@
     android:layout_height="match_parent"
     tools:context="com.uleth.flickrbrowser.EditInfoActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <!-- android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_conversion_absoluteHeight="56dp"
+        tools:layout_conversion_absoluteWidth="384dp"
+        tools:layout_editor_absoluteY="0dp" -->
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <!--   tools:layout_conversion_absoluteHeight="56dp"
+            tools:layout_conversion_absoluteWidth="384dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" -->
+
+    </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
-        android:layout_width="373dp"
-        android:layout_height="164dp"
-        android:layout_marginBottom="33dp"
-        android:layout_marginTop="256dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="283dp"
+        android:layout_height="136dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/Edit_tag"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="6dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
             android:id="@+id/Input_tag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:autoText="true"
             android:ems="10"
             android:hint="Input Tag "
             android:inputType="textPersonName"
-            android:text="Input Tag " />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/Input_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
             android:ems="10"
             android:hint="Input Author"
             android:inputType="textPersonName"
-            android:text="Input Author" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/Input_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
             android:ems="10"
             android:hint="Input Title"
             android:inputType="textPersonName"
-            android:text="Input Title"
+            android:textSize="16sp"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="341dp" />
     </LinearLayout>
@@ -49,25 +83,25 @@
     <Button
         android:id="@+id/Edit_tag"
         android:layout_width="244dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="64dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="36dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:onClick="@string/sendEditInfo"
         android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="389dp"
         android:layout_height="206dp"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="40dp" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:srcCompat="@drawable/android_img"
+        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>
