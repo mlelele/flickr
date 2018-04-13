@@ -50,7 +50,6 @@ class GetRawData extends AsyncTask<String, Void, String>
         //Log.d(TAG, "onPostExecute: parameter=" + s);
         if(mCallback != null){
             mCallback.onDownloadComplete(s, mDownloadStatus);
-           //Check lecture 137 changes in mainactivity- resume also- giving error
             // mCallback.onDownloadComplete(doInBackground(s), mDownloadStatus);
 
         }

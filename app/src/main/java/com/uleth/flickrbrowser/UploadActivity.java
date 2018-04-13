@@ -31,7 +31,6 @@ public class UploadActivity extends BaseActivity {
     private static final int IMAGE_GALLERY_REQUEST = 88;
     //private ImageView imgPicture;
     ImageView imgPicture;
-    Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
 
 
     @Override
